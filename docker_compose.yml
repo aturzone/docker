@@ -1,24 +1,14 @@
-version: "3.8"
-
 services:
   n8n:
-    image: n8nio/n8n:latest
+    image: n8n_custom
     container_name: n8n
     ports:
       - 8443:8443
     environment:
       - N8N_PORT=8443
       - N8N_SECURE_COOKIE=false
-      - DB_TYPE=postgresdb
-      - DB_POSTGRESDB_HOST=postgres
-      - DB_POSTGRESDB_PORT=5432
-      - DB_POSTGRESDB_DATABASE=n8n
-      - DB_POSTGRESDB_USER=n8n
-      - DB_POSTGRESDB_PASSWORD=n8npassword
     volumes:
       - n8n_data:/home/node/.n8n
-      - ./code:/code  # Mount full code directory (with venv, pip_cache, etc.)
+      - ./code:/code
     restart: unless-stopped
-  
-volumes:
-  n8n_data:
+

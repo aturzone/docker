@@ -27,3 +27,4 @@ RUN /code/venv/bin/pip install n8n
 
 # Specify the correct command to run n8n
 CMD ["/code/venv/bin/n8n"]
+
